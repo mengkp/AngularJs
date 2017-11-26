@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../js/angular.js"></script>
+		
+	</head>
+	//ng-app 定义模块控制范围
+	<body ng-app>
+		<input ng-model="name" type="text" placeholder="Enter your name" />
+		//ng-bind 与{{}}可以相互替换
+		<h1>Hello <span ng-bind="name"></span></h1>
+	</body>
+</html>

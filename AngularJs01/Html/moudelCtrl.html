@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module("testApp",[])
+			.controller("testCtrl",[
+			    function(){
+			        this.helloMes="hello";
+//			        var goodMes="good bye";
+                     this.changeMes=function(){
+                    	this.goodMes="good Bye";
+                    }
+
+			    }
+			])		
+		</script>
+	</head>
+	<body ng-controller="testCtrl as ctrl">
+		<p>{{ctrl.helloMes}}  AngularJs</p>
+		<p><input type="button" value="click"   ng-click="ctrl.changeMes()"  /></p>
+		<p>{{ctrl.goodMes}}  AngularJs</p>
+	</body>
+</html>

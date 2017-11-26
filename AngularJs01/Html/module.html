@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.js"></script>
+		<script type="text/javascript">
+			angular.module("testApp",[]).controller(
+				"testCtrl",[function(){
+					console.log("111");
+				}
+				/*function(){
+					console.log("22");
+				}*/
+				]
+			)
+			
+		</script>
+		
+	</head>
+	<body ng-app="testApp" ng-controller='testCtrl'>
+		<h1> hello {{1+1}}</h1>
+		
+	</body>
+</html>
