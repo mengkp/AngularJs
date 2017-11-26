@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module("testApp",[]).controller(
+				"testCtrl",[
+				   function(){
+				   	 var self=this;
+				   	 self.arrays=[
+				   	   {id:1,lable:'First',done:'true'},
+				   	   {id:2,lable:'Second',done:'false'},
+				   	   {id:3,lable:'Thrid',done:'true'},
+				   	   {id:4,lable:'Fourth',done:'false'}
+				   	 ]
+				   }]
+			)
+		</script>
+	</head>
+	<body ng-controller="testCtrl as ctrl">
+	  <div>
+	  	 <p ng-repeat="arr in ctrl.arrays">
+		  	<span ng-bind="arr.lable"></span>
+		  	<span ng-bind="arr.done"></span>
+		  </p>
+	  </div>
+	 
+	</body>
+</html>

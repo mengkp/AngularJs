@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			.gree{
+				background-color: green;
+			}
+			.pending{
+				background-color: red;
+			}
+		</style>		
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module("testApp",[]).controller("testCtrl",[
+			   function(){
+			   	var self=this;
+			   	self.arrays=[
+			   	       {id:1,lable:'First',done:'true',assigne:'exits'},
+				   	   {id:2,lable:'Second',done:'false'},
+				   	   {id:3,lable:'Thrid',done:'true'},
+				   	   {id:4,lable:'Fourth',done:'false',assigne:'not exit'}
+			   	];
+			   	self.getArrClass=function(status){
+			   		console.log(status);
+			   		return {
+			   			gree:status,
+			   			  pending:!status
+			   		};
+			   	};
+			   }]);
+		</script>
+	</head>
+	<body ng-controller="testCtrl as ctrl">
+		<div ng-repeat="arr in ctrl.arrays">
+			<p ng-class="ctrl.getArrClass(arr.done)">				
+				<span ng-bind="arr.lable"></span>
+			  	<span ng-bind="arr.done"></span>
+			  	<span ng-show="arr.assigne == 'exits'">{{arr.assigne}}</span>
+			</p>
+			
+		</div>	
+	</body>
+</html>
