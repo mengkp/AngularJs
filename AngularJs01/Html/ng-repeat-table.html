@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module("testApp",[]).controller("testCtrl",[
+			   function(){
+			   	  var self=this;
+			   	  self.arrays=[
+			   	     {id:1,lable:'first',status:true},
+			   	     {id:2,lable:'second',status:false},
+			   	     {id:3,lable:'third',status:true}
+			   	  ]
+			   }
+			]);
+		</script>
+		
+		<style>
+			body{
+				padding: 0;
+				margin: 0 0;
+			}
+			ul,li,p{
+				list-style:none;
+				padding: 0;
+				margin: 0;
+			}
+			.liLeft{
+				width: 80px;
+				height: 80px;
+				background-color: #ccc;
+				float: left;
+			}
+			.mt10{
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body ng-controller="testCtrl as ctrl">
+      <!-- <table>
+       	<tr ng-repeat-start="arr in ctrl.arrays">
+       		<td ng-bind="arr.lable"></td>
+       	</tr>
+       	<tr ng-repeat-end>
+       		<td ng-bind="arr.status"></td>
+       	</tr>
+       </table>
+	</body>-->
+	<ul>
+		<li  class="liLeft" ng-repeat-start="arr in ctrl.arrays">
+			<div >
+				<p class="mt10" ng-bind="arr.lable"></p>
+			</div>
+			<div>
+				<p class="mt10" ng-bind="arr.status"></p>
+			</div>
+		</li><span ng-repeat-end></span>
+	</ul>
+	
+</html>
