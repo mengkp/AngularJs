@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+		angular.module("testApp",[]).controller("testCtrl",[
+			 function(){
+			 	var self=this;
+			 	self.changeVal=function(){
+//			 		alert(111);
+			 		self.name='name';
+			 		self.pwd='password';
+			 	}
+			 	self.logVal=function(){
+			 		alert(self.name+","+self.pwd);
+			 	}
+			 }
+			]);
+			
+			//注意此处，一个模块首次定义的时候需要填写依赖，若没有需要填空数组。
+		    //后面其他地方如果引用同一个模块，不用填写依赖。
+			angular.module("testApp").controller("test2Ctrl",[
+			 function(){
+			 	var self=this;
+			 	self.changeVal=function(){
+//			 		alert(111);
+			 		self.name='name2';
+			 		self.pwd='password2';
+			 	}
+			 	self.logVal=function(){
+			 		alert(self.name+","+self.pwd);
+			 	}
+			 }
+			]);
+		</script>
+	</head>
+	<body>
+		<div ng-controller="testCtrl as ctrl">
+			<input type="text" ng-model="ctrl.name" />
+			<input type="password" ng-model="ctrl.pwd" />
+			<input type="button" value="change" ng-click="ctrl.changeVal()" />
+			<input type="button" value="submit" ng-click="ctrl.logVal()" />
+		</div>
+		
+		
+		<div ng-controller="test2Ctrl as ctrl2">
+			<input type="text" ng-model="ctrl2.name" />
+			<input type="password" ng-model="ctrl2.pwd" />
+			<input type="button" value="change" ng-click="ctrl2.changeVal()" />
+			<input type="button" value="submit" ng-click="ctrl2.logVal()" />
+		</div>
+	</body>
+</html>
