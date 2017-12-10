@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/angular.js" ></script>
+		<script type="text/javascript">
+			angular.module("testApp",[]).controller("testCtrl",[
+			   function(){
+			   	  var self=this;
+			   	  self.submit=function(){
+			   	  	alert(self.user);
+			   	  	
+			   	  }
+			   }
+			]);
+		</script>
+        <link rel="stylesheet" href="../css/common.css" />  
+	</head>
+	<body ng-controller="testCtrl as ctrl">
+		<form ng-submit="ctrl.submit()" name="testForm">
+			<!--
+            	作者：592407190@qq.com
+            	时间：2017-12-04
+            	描述：注意每个输入框的name属性
+            -->
+			<input type="text" title="用户名" ng-model="ctrl.user.username" name="userName" placeholder="userName" required="required"/>
+			<span class="red"  ng-show="testForm.userName.$error.required&&testForm.userName.$dirty">
+				请输入用户名
+			</span>
+			<!--<span class="red" ng-show="testForm.userName.$invalid">
+				必填
+			</span>-->
+			<input type="password" title="密码" ng-model="ctrl.user.password" placeholder="password" required="required" name="pwd" ng-pattern="/^[0-9a-zA-Z]+$/"  ng-minlength="6" />
+			<span class="red" ng-show="testForm.pwd.$error.pattern">
+				密码必须是数字和字母的组合
+			</span>
+			<span class="red" ng-show="testForm.pwd.$error.minlength">
+				请输入至少6位数字和字母的组合
+			</span>
+			<span class="red" ng-show="testForm.pwd.$error.required&&testForm.pwd.$dirty">
+				请输入密码
+			</span>
+			<!--<span class="red" ng-show="testForm.pwd.$invalid&&testForm.pwd.$dirty">
+				必填
+			</span>-->
+			<input type="email" title="邮箱" ng-model="ctrl.user.email" placeholder="email" name="email"/>
+			<span class="red" ng-show="testForm.email.$error.reauired">
+				请输入邮箱
+			</span>
+			<span class="red" ng-show="testForm.email.$error.email">
+				请输入有效的邮箱信息
+			</span>
+			<!--<span class="red" ng-show="testForm.email.$invalid">
+				必填
+			</span>-->
+			<input type="submit" value="Submit" ng-disabled="testForm.$invalid"/>
+		</form>
+	</body>
+</html>
